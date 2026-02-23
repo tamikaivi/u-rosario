@@ -110,7 +110,9 @@ body {
   color: $gris-oscuro;
   line-height: 1.6;
 }
-
+html {
+  height: 100%;
+}
 h1,
 h2,
 h3 {
@@ -156,6 +158,21 @@ h3 {
 }
 
 :focus-visible {
+  outline: 3px solid $ur-rojo;
+  outline-offset: 2px;
+}
+
+/* Focus styles for keyboard-focusable table rows */
+tr[tabindex]:focus {
+  outline: 3px solid $ur-rojo;
+  outline-offset: 2px;
+}
+
+/* Ensure focus is visible on interactive elements */
+a:focus,
+button:focus,
+input:focus,
+mat-checkbox:focus {
   outline: 3px solid $ur-rojo;
   outline-offset: 2px;
 }

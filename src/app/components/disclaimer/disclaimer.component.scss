@@ -1,0 +1,43 @@
+@import "variables";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.disclaimer-card {
+  max-width: 900px;
+  margin: $sp-md auto $sp-xxl;
+  background: #fffbeb !important;
+  border-left: 4px solid #dd6b20 !important;
+  border-radius: $radius !important;
+}
+
+.disclaimer-inner {
+  display: flex;
+  gap: $sp-md;
+  align-items: flex-start;
+}
+
+.disclaimer-icon {
+  color: #dd6b20;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.disclaimer-title {
+  font-family: $font-titulo;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #7b341e;
+  margin-bottom: $sp-sm;
+  font-weight: normal;
+}
+
+p {
+  font-family: $font-cuerpo;
+  font-size: 0.875rem;
+  color: #7b341e;
+  line-height: 1.6;
+}

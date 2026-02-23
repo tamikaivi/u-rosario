@@ -1,0 +1,125 @@
+@import "variables";
+.form-title {
+  font-family: $font-titulo;
+  font-size: 1.8rem;
+  color: $ur-rojo;
+  letter-spacing: 2px;
+}
+.section-title {
+  font-family: $font-titulo;
+  font-size: 1.1rem;
+  color: $ur-rojo;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $sp-sm;
+  margin: $sp-lg 0 $sp-md;
+
+  mat-icon {
+    font-size: 1.1rem;
+  }
+}
+.form-row {
+  display: flex;
+  gap: $sp-md;
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+  }
+}
+
+.field-full {
+  width: 100%;
+}
+.field-half {
+  flex: 1;
+}
+.field-two-thirds {
+  flex: 2;
+}
+.field-third {
+  flex: 1;
+}
+.github-row {
+  display: flex;
+  gap: $sp-md;
+  align-items: flex-start;
+
+  .field-github {
+    flex: 1;
+  }
+
+  .github-btn {
+    height: 56px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+    .github-btn {
+      width: 100%;
+    }
+    .field-github {
+      width: 100%;
+    }
+  }
+}
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-md;
+  padding-top: $sp-md;
+  align-items: center;
+}
+
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-family: $font-titulo !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 2px;
+  padding: 0 $sp-xl !important;
+  height: 52px !important;
+}
+
+.global-error {
+  display: flex;
+  align-items: center;
+  gap: $sp-sm;
+  padding: $sp-md;
+  background: #fef2f2;
+  border-left: 4px solid $ur-rojo;
+  border-radius: $radius;
+  color: $ur-rojo-oscuro;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.submit-hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: $gris-medio;
+  font-size: 0.8rem;
+  font-style: italic;
+
+  mat-icon {
+    font-size: 0.9rem;
+  }
+}
+
+.form-card {
+  max-width: 900px;
+  margin: $sp-xl auto;
+  border-radius: $radius-lg !important;
+  box-shadow: $shadow-md !important;
+
+  @media (max-width: $bp-md) {
+    margin: $sp-md;
+    border-radius: $radius !important;
+  }
+}

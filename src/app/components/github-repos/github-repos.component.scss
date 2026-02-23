@@ -1,0 +1,147 @@
+@import "variables";
+
+.repos-section {
+  margin-top: $sp-xl;
+}
+
+.repos-title {
+  font-family: $font-titulo;
+  font-size: 1.1rem;
+  color: $ur-rojo;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: $sp-sm;
+  margin-bottom: $sp-sm;
+  border-left: 4px solid $ur-rojo;
+  padding-left: $sp-md;
+}
+
+.repos-desc {
+  font-family: $font-cuerpo;
+  color: $gris-medio;
+  font-size: 0.875rem;
+  margin-bottom: $sp-md;
+  padding-left: calc(#{$sp-md} + 4px);
+}
+
+.repos-loading {
+  display: flex;
+  align-items: center;
+  gap: $sp-md;
+  padding: $sp-xl;
+  color: $gris-medio;
+  font-family: $font-cuerpo;
+}
+
+.repos-error {
+  display: flex;
+  align-items: center;
+  gap: $sp-sm;
+  padding: $sp-md;
+  background: #fef2f2;
+  border-left: 4px solid $ur-rojo;
+  border-radius: $radius;
+  color: $ur-rojo-oscuro;
+  font-weight: 700;
+}
+
+.repos-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-md;
+  padding: $sp-xxl;
+  color: $gris-medio;
+
+  mat-icon {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+// Chip contador
+.selection-info {
+  display: flex;
+  align-items: center;
+  gap: $sp-md;
+  margin-bottom: $sp-md;
+}
+
+.chip-full {
+  background-color: $ur-rojo;
+  color: $blanco;
+}
+
+.max-msg {
+  font-size: 0.8rem;
+  color: $ur-rojo;
+  font-weight: 700;
+  font-style: italic;
+}
+
+// Tabla
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: $radius-lg;
+}
+
+table {
+  width: 100%;
+}
+
+// Header tabla con Rojo Mutisia
+.mat-mdc-header-row {
+  background-color: $ur-rojo;
+}
+
+.mat-mdc-header-cell {
+  color: $blanco;
+  font-family: $font-cuerpo;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// Filas
+.mat-mdc-row {
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &.row-selected {
+    background: rgba($ur-rojo, 0.08);
+    border-left: 4px solid $ur-rojo;
+  }
+
+  &:focus {
+    outline: 3px solid $ur-rojo;
+    outline-offset: -3px;
+  }
+}
+
+.repo-name {
+  font-weight: 700;
+  font-family: $font-cuerpo;
+}
+
+.repo-desc {
+  font-size: 0.78rem;
+  color: $gris-medio;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lang-chip {
+  background-color: rgba($ur-rojo, 0.1) !important;
+  color: $ur-rojo !important;
+  font-size: 0.75rem !important;
+}
+
+.no-lang {
+  color: $gris-claro;
+}

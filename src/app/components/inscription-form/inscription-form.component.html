@@ -1,3 +1,247 @@
-<p>
-  inscription-form works!
-</p>
+<mat-card class="form-card">
+  <mat-card-header>
+    <mat-card-title class="form-title"
+      >Formulario de Inscripción</mat-card-title
+    >
+    <mat-card-subtitle>
+      Completa todos los campos para postularte al Hackathon Virtual.
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <form [formGroup]="form" role="form">
+      <!-- DATOS PERSONALES -->
+      <h3 class="section-title">
+        <mat-icon>person</mat-icon> Datos Personales
+      </h3>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="field-half">
+          <mat-label>Nombres</mat-label>
+          <input
+            matInput
+            formControlName="nombres"
+            placeholder="Ej: Juan Carlos"
+            autocomplete="given-name"
+            [attr.aria-invalid]="
+              f['nombres'].invalid && (f['nombres'].touched || submitted)
+            "
+            aria-required="true"
+          />
+          <mat-icon matSuffix>badge</mat-icon>
+          <mat-error *ngIf="f['nombres'].hasError('required')">
+            El nombre es requerido.
+          </mat-error>
+          <mat-error *ngIf="f['nombres'].hasError('minlength')">
+            Mínimo 2 caracteres.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="field-half">
+          <mat-label>Apellidos</mat-label>
+          <input
+            matInput
+            formControlName="apellidos"
+            placeholder="Ej: Pérez López"
+            autocomplete="family-name"
+            [attr.aria-invalid]="
+              f['apellidos'].invalid && (f['apellidos'].touched || submitted)
+            "
+            aria-required="true"
+          />
+          <mat-icon matSuffix>badge</mat-icon>
+          <mat-error *ngIf="f['apellidos'].hasError('required')">
+            Los apellidos son requeridos.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field-half">
+          <mat-label>Fecha de Nacimiento</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="fechaNacimiento"
+            placeholder="DD/MM/AAAA"
+            [max]="today"
+            [attr.aria-invalid]="
+              f['fechaNacimiento'].invalid &&
+              (f['fechaNacimiento'].touched || submitted)
+            "
+            aria-required="true"
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="f['fechaNacimiento'].hasError('required')">
+            La fecha es requerida.
+          </mat-error>
+          <mat-error *ngIf="f['fechaNacimiento'].hasError('futureDate')">
+            La fecha no puede ser mayor al día de hoy.
+          </mat-error>
+          <mat-error *ngIf="f['fechaNacimiento'].hasError('tooOld')">
+            Debes ser menor de 30 años.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="field-half">
+          <mat-label>N° Cédula de Identidad</mat-label>
+          <input
+            matInput
+            formControlName="ci"
+            placeholder="Ej: 12345678"
+            [attr.aria-invalid]="
+              f['ci'].invalid && (f['ci'].touched || submitted)
+            "
+            aria-required="true"
+          />
+          <mat-icon matSuffix>credit_card</mat-icon>
+          <mat-error *ngIf="f['ci'].hasError('required')">
+            El CI es requerido.
+          </mat-error>
+          <mat-error *ngIf="f['ci'].hasError('pattern')">
+            Solo dígitos (5-15 caracteres).
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="field-half">
+          <mat-label>Lugar Expedición</mat-label>
+          <input
+            matInput
+            formControlName="lugarExpedicion"
+            placeholder="LP, SC, CB..."
+            [attr.aria-invalid]="
+              f['lugarExpedicion'].invalid &&
+              (f['lugarExpedicion'].touched || submitted)
+            "
+            aria-required="true"
+          />
+          <mat-error *ngIf="f['lugarExpedicion'].hasError('required')">
+            Requerido.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field-half">
+          <mat-label>N° Celular</mat-label>
+          <input
+            matInput
+            formControlName="celular"
+            placeholder="+59170000000"
+            autocomplete="tel"
+            [attr.aria-invalid]="
+              f['celular'].invalid && (f['celular'].touched || submitted)
+            "
+            aria-required="true"
+          />
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error *ngIf="f['celular'].hasError('required')">
+            El celular es requerido.
+          </mat-error>
+          <mat-error *ngIf="f['celular'].hasError('pattern')">
+            Número inválido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="field-full">
+        <mat-label>Dirección</mat-label>
+        <input
+          matInput
+          formControlName="direccion"
+          placeholder="Ej: Av. Principal 123, La Paz"
+          autocomplete="street-address"
+          [attr.aria-invalid]="
+            f['direccion'].invalid && (f['direccion'].touched || submitted)
+          "
+          aria-required="true"
+        />
+        <mat-icon matSuffix>home</mat-icon>
+        <mat-error *ngIf="f['direccion'].hasError('required')">
+          La dirección es requerida.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- GITHUB -->
+      <mat-divider class="section-divider"></mat-divider>
+      <h3 class="section-title"><mat-icon>code</mat-icon> GitHub</h3>
+
+      <div class="github-row">
+        <mat-form-field appearance="outline" class="field-github">
+          <mat-label>Usuario de GitHub</mat-label>
+          <input
+            matInput
+            formControlName="githubUser"
+            placeholder="Ej: octocat"
+            [attr.aria-invalid]="
+              f['githubUser'].invalid && (f['githubUser'].touched || submitted)
+            "
+            aria-required="true"
+            (keydown.enter)="$event.preventDefault(); buscarRepositorios()"
+          />
+          <mat-icon matPrefix>alternate_email</mat-icon>
+          <mat-error *ngIf="f['githubUser'].hasError('required')">
+            El usuario de GitHub es requerido.
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          class="github-btn"
+          (click)="buscarRepositorios()"
+          [disabled]="loadingRepos"
+          aria-label="Buscar repositorios de GitHub"
+        >
+          <mat-icon>search</mat-icon>
+          {{ loadingRepos ? "Buscando..." : "Buscar Repos" }}
+        </button>
+      </div>
+
+      <!-- Repos component -->
+      <app-github-repos
+        *ngIf="reposFetched || loadingRepos"
+        [repos]="repos"
+        [loading]="loadingRepos"
+        [error]="reposError"
+        (selectionChange)="onSelectionChange($event)"
+      >
+      </app-github-repos>
+
+      <!-- ACCIONES -->
+      <mat-divider class="section-divider"></mat-divider>
+
+      <div class="form-actions">
+        <div
+          class="global-error"
+          *ngIf="submitError"
+          role="alert"
+          aria-live="assertive"
+        >
+          <mat-icon>error_outline</mat-icon>
+          {{ submitError }}
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="btn-submit"
+          aria-label="Enviar postulación"
+          (click)="onSubmit()"
+        >
+          <mat-icon>send</mat-icon>
+          Enviar Postulación
+        </button>
+
+        <p class="submit-hint">
+          <mat-icon inline>info</mat-icon>
+          Se abrirá tu cliente de correo con el resumen de tu postulación.
+        </p>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
