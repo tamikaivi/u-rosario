@@ -49,12 +49,6 @@ Se implementaron varias mejoras básicas:
 - Estados de validación expuestos con `aria-invalid` y mensajes de error con `role="alert"` / `aria-live="assertive"`.
 - Estilos visibles para foco (`:focus-visible`) en `src/styles.scss`.
 
-Recomendaciones para evaluación WCAG 2.1 AA:
-
-- Ejecutar auditoría Lighthouse y axe (o pa11y).
-- Probar con lector de pantalla (NVDA/VoiceOver) y navegación solo con teclado.
-- Verificar contraste de colores en pantallas reales.
-
 ## Tests manuales sugeridos
 
 - Tab/Shift+Tab atraviesa todos los controles en orden lógico.
