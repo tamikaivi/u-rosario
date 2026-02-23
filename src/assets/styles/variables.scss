@@ -1,0 +1,46 @@
+// ==========================================
+// MANUAL DE MARCA - Universidad del Rosario
+// ==========================================
+
+// Color principal: Rojo Mutisia Clematis (página 19)
+$ur-rojo: #da0921;
+$ur-rojo-oscuro: #b8071c;
+
+// Color complementario (página 21)
+$ur-azul: #3100a0;
+$ur-azul-oscuro: #190056;
+
+// Grises
+$ur-gris-70: #4d4d4d;
+$gris-oscuro: #333333;
+$gris-medio: #666666;
+$gris-claro: #cccccc;
+$gris-fondo: #f2f2f2;
+$blanco: #ffffff;
+$negro: #1a1a1a;
+
+// Tipografía (página 22 del manual)
+// Calibri → web/HTML según el manual
+// Bebas Neue → títulos/destacados (disponible en Google Fonts)
+$font-cuerpo: "Calibri", "Trebuchet MS", Arial, sans-serif;
+$font-titulo: "Bebas Neue", Impact, sans-serif;
+
+// Espaciado
+$sp-xs: 4px;
+$sp-sm: 8px;
+$sp-md: 16px;
+$sp-lg: 24px;
+$sp-xl: 32px;
+$sp-xxl: 48px;
+
+// Bordes y sombras
+$radius: 4px;
+$radius-lg: 8px;
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+// Breakpoints
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;

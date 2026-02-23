@@ -1,1 +1,161 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+@import "assets/styles/variables";
+// Plus imports for other components in your app.
+// Bebas Neue para títulos (manual UR pág. 22)
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ur-primary: mat.define-palette(
+  (
+    50: #fce4e7,
+    100: #f9bcc3,
+    200: #f5909b,
+    300: #f16473,
+    400: #ee4355,
+    500: #da0921,
+    // Color oficial del manual
+    600: #c4081d,
+    700: #a80718,
+    800: #8d0513,
+    900: #61030b,
+    contrast: (
+      50: #000000,
+      100: #000000,
+      200: #000000,
+      300: #000000,
+      400: #ffffff,
+      500: #ffffff,
+      600: #ffffff,
+      700: #ffffff,
+      800: #ffffff,
+      900: #ffffff,
+    ),
+  ),
+  500
+);
+
+// Paleta de acento: Azul complementario #3100A0 (manual pág. 21)
+$ur-accent: mat.define-palette(
+  (
+    50: #e6e0f4,
+    100: #c0b3e3,
+    200: #9780d1,
+    300: #6d4dbf,
+    400: #4d26b1,
+    500: #3100a0,
+    // Azul complementario oficial
+    600: #2b0090,
+    700: #23007d,
+    800: #1b006b,
+    900: #0e004d,
+    contrast: (
+      50: #000000,
+      100: #000000,
+      200: #ffffff,
+      300: #ffffff,
+      400: #ffffff,
+      500: #ffffff,
+      600: #ffffff,
+      700: #ffffff,
+      800: #ffffff,
+      900: #ffffff,
+    ),
+  ),
+  500
+);
+
+// Paleta warn
+$ur-warn: mat.define-palette(mat.$red-palette);
+
+// Definir tema
+$ur-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $ur-primary,
+      accent: $ur-accent,
+      warn: $ur-warn,
+    ),
+    typography: mat.define-typography-config(
+        $font-family: "Calibri, Trebuchet MS, Arial, sans-serif",
+      ),
+    density: 0,
+  )
+);
+
+// Aplicar tema
+@include mat.all-component-themes($ur-theme);
+
+// ==========================================
+// ESTILOS GLOBALES
+// ==========================================
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-cuerpo;
+  background-color: $gris-fondo;
+  color: $gris-oscuro;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-titulo;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+// Sobrescribir color primario de Material con Rojo Mutisia exacto
+.mat-mdc-raised-button.mat-primary,
+.mat-mdc-fab.mat-primary,
+.mat-mdc-mini-fab.mat-primary {
+  background-color: $ur-rojo !important;
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+  color: $ur-rojo !important;
+}
+
+.mat-mdc-form-field.mat-focused .mdc-line-ripple::after {
+  border-bottom-color: $ur-rojo !important;
+}
+
+.mat-mdc-checkbox.mat-primary {
+  --mdc-checkbox-selected-checkmark-color: #fff;
+  --mdc-checkbox-selected-focus-icon-color: #{$ur-rojo};
+  --mdc-checkbox-selected-hover-icon-color: #{$ur-rojo};
+  --mdc-checkbox-selected-icon-color: #{$ur-rojo};
+  --mdc-checkbox-selected-pressed-icon-color: #{$ur-rojo};
+}
+
+// Accesibilidad
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:focus-visible {
+  outline: 3px solid $ur-rojo;
+  outline-offset: 2px;
+}
