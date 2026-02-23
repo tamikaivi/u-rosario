@@ -27,7 +27,7 @@ Para iniciar la app en modo desarrollo (si el puerto 4200 está ocupado usa otro
 
 ```bash
 ng serve --port 4200
-# o
+o
 npm start
 ```
 
